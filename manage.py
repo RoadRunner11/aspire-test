@@ -7,7 +7,7 @@ from flask_script import Manager
 from app.main import api
 from app import create_app, db
 
-app = create_app(os.getenv('BOILERPLATE_ENV') or 'dev')
+app = create_app(os.getenv('ENV') or 'dev')
 app.register_blueprint(api, url_prefix='/api')
 
 app.app_context().push()
