@@ -8,6 +8,8 @@ api = Blueprint('api', __name__)
 
 from app import heartbeat
 from app.main.controlers import external
+from app.main.controlers import user
+from app.main.controlers import favourites
 
 @api.after_request
 def after_request(response):
