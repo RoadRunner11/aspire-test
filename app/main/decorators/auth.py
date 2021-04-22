@@ -14,12 +14,12 @@ def token_required(f):
             token = request.headers['Authorization']
 
         if not token:
-            return jsonify({'message': 'a valid token is missing'})
+            return jsonify({'body': 'a valid token is missing'})
 
-        try:
-            current_user = User.query.filter_by(token=token).first()
-        except:
-            return jsonify({'message': 'token is invalid'})
+        
+        current_user = User.query.filter_by(token=token).first()
+        if not current_user:
+            return jsonify({'body': 'token is invalid'})
 
         return f(current_user, *args, **kwargs)
    return decorator

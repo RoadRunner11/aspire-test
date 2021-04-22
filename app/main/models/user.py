@@ -11,6 +11,7 @@ class User(db.Model, DBMixin):
 
     new_item_must_have_column=['email','password', 'username']
     not_updatable_columns = ['id']
+    output_column = ['id', 'email', 'username']
 
     def __init__(self, email=' ', password=' '):
         '''

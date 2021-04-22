@@ -35,3 +35,4 @@ def request_token():
     if user:
         token = user.token
         return res({'token':token})
+    return Responses.AUTHENTICATION_FAILED()

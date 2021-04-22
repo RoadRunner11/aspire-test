@@ -18,18 +18,25 @@ class FavouriteCharacter(db.Model, DBMixin):
 
     user = db.relationship('User')
 
+    not_updatable_columns = ['id']
+    output_column = ['_id', 'height', 'race', 'gender', 'birth', 'spouse', 'death', 'real',
+                    'hair', 'name', 'wikiurl']
+
     @classmethod
     def get_characters_from_user(cls, user_id):
         return FavouriteCharacter.query.filter_by(user_id = user_id).all()
 
 class FavouriteQuotes(db.Model, DBMixin):
     __tablename__ = 'favourite_quotes'
-    quote_id = db.Column(db.String(120), unique=True, nullable=False)
+    _id = db.Column(db.String(120), unique=True, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id')) 
-    character_id = db.Column(db.Integer, db.ForeignKey('favourite_character.id'), nullable=False, default=1)  
-    character = db.relationship('FavouriteCharacter')
+    character = db.Column(db.String(255))
     dialog = db.Column(db.String(255))
+    movie = db.Column(db.String(100))
     user = db.relationship('User')
+
+    not_updatable_columns = ['id']
+    output_column = ['_id', 'character', 'dialog', 'movie']
     
     @classmethod
     def get_quotes_from_user(cls, user_id):
