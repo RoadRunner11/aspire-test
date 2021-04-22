@@ -32,11 +32,5 @@ def create_app(config_name):
     db.init_app(app)
     bcrypt.init_app(app)
     jwt.init_app(app)
-    # migrate.init_app(app, db)
-    # register blueprints
-    # from app.api import API
-    # for name in API:
-    #     BP = API[name]
-    #     app.register_blueprint(
-    #         BP['route'], url_prefix=BP['url_prefix'])
+    
     return app
