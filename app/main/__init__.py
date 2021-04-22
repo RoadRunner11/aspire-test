@@ -7,6 +7,7 @@ import flask
 api = Blueprint('api', __name__)
 
 from app import heartbeat
+from app.main.controlers import external
 
 @api.after_request
 def after_request(response):
