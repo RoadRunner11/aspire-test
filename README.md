@@ -11,3 +11,5 @@
     - POST /characters/{{id}}/favourites
     - POST /characters/{{id}}/quotes/{{id}}/favourites
     - GET /favourites
+
+Check out postman documentation at https://documenter.getpostman.com/view/11985797/TzJx7w71
